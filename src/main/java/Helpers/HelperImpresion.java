@@ -9,10 +9,16 @@ import Logica_Negocio.Producto;
 import java.util.ArrayList;
 
 /**
- *
+ *Clase HelperImpresion.
+ *Proporciona métodos para imprimir información de personas y productos almacenados tanto en la nube como de manera local.
  * @author Santiago Lopez
  */
 public class HelperImpresion {
+    /**
+     * Imprime la información de personas y sus productos almacenados en la nube.
+     * 
+     * @param lspersonasnube Una lista de personas almacenadas en la nube.
+     */
 
     public static void ImprimirInfoPersonaNube(ArrayList<Persona> lspersonasnube) {
         String[] parts = null,
@@ -51,7 +57,11 @@ public class HelperImpresion {
         }
 
     }
-
+    /**
+     * Imprime la información de personas y sus productos almacenados en local.
+     * 
+     * @param lspersonasnube Una lista de personas almacenadas en la nube.
+     */
     public static void ImprimirInfoLocal(ArrayList<Persona> lspersonalocal) {
         if (!lspersonalocal.isEmpty()) {
             for (int i = 0; i < lspersonalocal.size(); i++) {
@@ -73,7 +83,12 @@ public class HelperImpresion {
             System.out.println("No se ha registrado ningun usuario local, por favor registre una persona");
         }
     }
-
+    /**
+     * Busca y muestra la información de una persona almacenada en la nube por su código único (UID).
+     * 
+     * @param lspersonasnube Una lista de personas almacenadas en la nube.
+     * @param codigo El código único de la persona a buscar.
+     */
     public static void BuscarPersonaNube(ArrayList<Persona> lspersonasnube, String codigo) {
         String[] partes = null,
                 partes2 = null;
@@ -118,7 +133,12 @@ public class HelperImpresion {
             System.out.println("El uid buscado no se encuenttra en la lista");
         }
     }
-
+    /**
+     * Devuelve la información de personas almacenadas en la nube en formato de cadena de texto.
+     * 
+     * @param lspersonasnube Una lista de personas almacenadas en la nube.
+     * @return Una cadena de texto con la información de las personas y sus productos.
+     */
     public static String ImprimirInfoInterfaz(ArrayList<Persona> lspersonasnube) {
         String info = "";
         String[] parts = null,
@@ -161,6 +181,13 @@ public class HelperImpresion {
 
         return info;
     }
+    /**
+     * Devuelve la información de una persona específica almacenada en la nube en formato de cadena de texto.
+     * 
+     * @param lspersonasnube Una lista de personas almacenadas en la nube.
+     * @param codigo El código único de la persona a buscar.
+     * @return Una cadena de texto con la información de la persona y sus productos.
+     */
 
     public static String ImprimirInfoInterfazNube(ArrayList<Persona> lspersonasnube, String codigo) {
         String info = "";
@@ -210,7 +237,12 @@ public class HelperImpresion {
         }
         return info;
     }
-    
+        /**
+     * Devuelve la información de una persona almacenada localmente en formato de cadena de texto.
+     * 
+     * @param per Una persona almacenada localmente.
+     * @return Una cadena de texto con la información de la persona y sus productos.
+     */
     public static String ImprimirInfoInterfazLocal(Persona per) {
         String info = "";
         String[] parts = null,
@@ -251,12 +283,7 @@ public class HelperImpresion {
          return info;
 
             }
-
-        
-        
-       
-
-    }
+}
     
         
 

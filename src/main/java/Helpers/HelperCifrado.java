@@ -8,10 +8,18 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- *
+ *Clase HelperCifrado
+ *Proporciona métodos para cifrar mensajes utilizando el algoritmo SHA-256.
  * @author Santiago Lopez
  */
 public class HelperCifrado {
+     /**
+     * Cifra un mensaje utilizando el algoritmo SHA-256.
+     * 
+     * @param mensaje El mensaje que se desea cifrar.
+     * @return Una cadena de texto en formato hexadecimal que representa el cifrado del mensaje.
+     * @throws RuntimeException Si ocurre una excepción relacionada con el algoritmo de cifrado.
+     */
     
       public static String CifrarSHA256(String mensaje)
     {
