@@ -43,7 +43,7 @@ public class Conexion {
     }
     
     public static Connection getConnection() {
-        String url = "jdbc:mysql:// localhost:3306/prueba";
+        String url = "jdbc:mysql:// localhost:3307/prueba";
         String user = "root";
         String pass = "";
         try {
