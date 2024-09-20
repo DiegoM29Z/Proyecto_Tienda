@@ -20,6 +20,9 @@ import java.util.Map;
 import javax.swing.JOptionPane;
 
 /**
+ * Clase PersonaProvider que proporciona métodos para interactuar con
+ * la colección de personas en Firestore. Esta clase incluye operaciones
+ * para guardar, cargar y eliminar personas en la base de datos.
  *
  * @author Santiago Lopez
  */
@@ -27,6 +30,14 @@ public class PersonaProvider {
 
     CollectionReference reference;
     public static Firestore db;
+    /**
+     * Guarda una persona en la colección especificada de Firestore.
+     *
+     * @param coleccion el nombre de la colección donde se almacenará la persona.
+     * @param documento el identificador del documento donde se guardará la persona.
+     * @param data un mapa que contiene los datos de la persona.
+     * @return true si la operación fue exitosa, false en caso contrario.
+     */
 
     public static boolean GuardarPersona(String coleccion, String documento, Map<String, Object> data) {
         db = FirestoreClient.getFirestore();
@@ -40,7 +51,11 @@ public class PersonaProvider {
         }
         return false;
     }
-
+    /**
+     * Carga la información de todas las personas de la colección "Persona".
+     *
+     * @return una lista de objetos Persona.
+     */
     public static ArrayList CargarInfoPersona() {
 
         Persona objper;
@@ -72,7 +87,12 @@ public class PersonaProvider {
         }
         return lspersona;
     }
-
+    /**
+     * Verifica si un UID ya existe en la colección "Persona".
+     *
+     * @param uid el UID a verificar.
+     * @return true si el UID existe, false en caso contrario.
+     */
     public static boolean RetornarUid(String uid) {
 
         ArrayList<String> uids = new ArrayList<>();
@@ -101,7 +121,12 @@ public class PersonaProvider {
         }
         return !rta;
     }
-
+    /**
+     * Carga la información de una persona específica usando su UID.
+     *
+     * @param codigo el UID de la persona a cargar.
+     * @return un objeto Persona si se encuentra, o null si no.
+     */
     public static Persona CargarInfoPersonaCodigo(String codigo) {
 
         Persona objper;
@@ -138,7 +163,13 @@ public class PersonaProvider {
         }
         return objper1;
     }
-
+    /**
+     * Elimina una persona de la colección especificada en Firestore.
+     *
+     * @param coleccion el nombre de la colección de la que se eliminará la persona.
+     * @param documento el UID del documento a eliminar.
+     * @return true si la operación fue exitosa, false en caso contrario.
+     */
     public static boolean EliminarPersona(String coleccion, String documento) {
         db = FirestoreClient.getFirestore();
         boolean res = RetornarUid(documento);

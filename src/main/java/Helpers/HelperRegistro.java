@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * Clase HelperRegistro que implementa la interfaz IHelperRegistro.
+ * Esta clase proporciona métodos para registrar una persona en la nube.
  *
  * @author Santiago Lopez Patron Adapter
  */

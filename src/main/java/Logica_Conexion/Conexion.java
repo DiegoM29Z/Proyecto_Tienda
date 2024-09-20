@@ -18,14 +18,22 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
+ * Clase Conexion que implementa el patrón Singleton para gestionar
+ * conexiones a Firestore y a una base de datos MySQL.
  *
- * @author Santiago Lopez  Patron Singleton
+ * @author Santiago Lopez Patron Singleton
  */
 public class Conexion {
 
     public static Firestore db;
     public static Connection con = null;
 
+    /**
+     * Establece una conexión con Firestore utilizando credenciales desde un archivo JSON.
+     * Si la conexión se establece con éxito, se imprime un mensaje de confirmación.
+     *
+     * @throws IOException si ocurre un error al leer el archivo de credenciales.
+     */
     public static void Conectar() {
         try {
             FileInputStream as = new FileInputStream("tienda-electronica.json");
@@ -41,7 +49,12 @@ public class Conexion {
             System.out.println("Error:" + e.getMessage());
         }
     }
-    
+    /**
+     * Obtiene una conexión a la base de datos MySQL.
+     *
+     * @return una instancia de Connection que representa la conexión a la base de datos,
+     *         o null si no se pudo establecer la conexión.
+     */
     public static Connection getConnection() {
         String url = "jdbc:mysql:// localhost:3307/prueba";
         String user = "root";

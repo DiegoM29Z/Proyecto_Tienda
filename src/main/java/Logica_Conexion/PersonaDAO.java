@@ -14,13 +14,21 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
+ * Clase PersonaDAO que implementa la interfaz DAOInterfacePersona.
+ * Esta clase proporciona métodos para realizar operaciones CRUD sobre la entidad Persona en la base de datos.
  *
  * @author Santiago Lopez
  */
 public class PersonaDAO implements DAOInterfacePersona {
 
     public static Connection con = Conexion.getConnection();
-
+    /**
+     * Agrega una nueva persona a la base de datos.
+     *
+     * @param per el objeto Persona que se va a agregar.
+     * @return el número de filas afectadas por la operación.
+     * @throws SQLException si ocurre un error al acceder a la base de datos.
+     */
     @Override
     public int add(Persona per) throws SQLException {
         String query
@@ -38,7 +46,13 @@ public class PersonaDAO implements DAOInterfacePersona {
         int n = ps.executeUpdate();
         return n;
     }
-
+    /**
+     * Elimina una persona de la base de datos usando su UID.
+     *
+     * @param id el UID de la persona a eliminar.
+     * @return el número de filas afectadas por la operación.
+     * @throws SQLException si ocurre un error al acceder a la base de datos.
+     */
     @Override
     public int delete(String id) throws SQLException {
         String query
@@ -50,7 +64,13 @@ public class PersonaDAO implements DAOInterfacePersona {
        return n;
        
     }
-
+    /**
+     * Obtiene una persona de la base de datos utilizando su UID.
+     *
+     * @param id el UID de la persona a obtener.
+     * @return un objeto Persona si se encuentra, o null si no.
+     * @throws SQLException si ocurre un error al acceder a la base de datos.
+     */
     @Override
     public Persona getPersona(String id) throws SQLException {
         
@@ -81,7 +101,12 @@ public class PersonaDAO implements DAOInterfacePersona {
         else
             return null;
     }
-
+    /**
+     * Obtiene una lista de todas las personas en la base de datos.
+     *
+     * @return una lista de objetos Persona.
+     * @throws SQLException si ocurre un error al acceder a la base de datos.
+     */
     @Override
     public ArrayList<Persona> getPersona() throws SQLException {
         String query = "select * from persona";
@@ -103,7 +128,12 @@ public class PersonaDAO implements DAOInterfacePersona {
         }
         return ls;
     }
-
+    /**
+     * Actualiza la información de una persona en la base de datos.
+     *
+     * @param per el objeto Persona con la información actualizada.
+     * @throws SQLException si ocurre un error al acceder a la base de datos.
+     */
     @Override
     public void update(Persona per) throws SQLException {
          String query
@@ -120,7 +150,11 @@ public class PersonaDAO implements DAOInterfacePersona {
          ps.setString(7, per.getUid());
         ps.executeUpdate();
     }
-
+    /**
+     * Cierra la conexión a la base de datos.
+     *
+     * @throws SQLException si ocurre un error al cerrar la conexión.
+     */
     @Override
     public void close() throws SQLException {
         con.close();
