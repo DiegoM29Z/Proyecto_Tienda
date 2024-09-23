@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  */
 public class PersonaDAO implements DAOInterfacePersona {
 
-    public static Connection con = Conexion.getConnection();
+    public static Connection  = Conexion.getConnection();
     /**
      * Agrega una nueva persona a la base de datos.
      *

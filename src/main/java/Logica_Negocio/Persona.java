@@ -9,8 +9,11 @@ import java.util.ArrayList;
 
 
 /**
+ * La clase Persona representa a una persona dentro del sistema. Contiene información
+ * personal como nombre, apellido, dirección, cédula y productos asociados.
  *
  * @author Santiago Lopez
+ * @version 1.0
  */
 public class Persona{
 

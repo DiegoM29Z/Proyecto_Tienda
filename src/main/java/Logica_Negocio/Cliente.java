@@ -7,10 +7,21 @@ package Logica_Negocio;
 import Helpers.HelperCifrado;
 
 /**
+ * La clase Cliente representa un tipo específico de usuario en la aplicación,
+ * que hereda de la clase {@link Usuario}. Implementa el patrón Template Method
+ * para definir el comportamiento de inicio de sesión (LogOn) específico para un cliente.
  *
- * @author Santiago Lopez Patron Template Method
+ * @author Santiago Lopez
+ * @version 1.0
  */
 public class Cliente extends Usuario {
+    /**
+     * Constructor de la clase Cliente. Inicializa un nuevo cliente con un nombre de usuario
+     * y contraseña.
+     *
+     * @param usu el nombre de usuario del cliente.
+     * @param contra la contraseña del cliente.
+     */
 
     public Cliente(String usu, String contra) {
         super(usu, contra);
